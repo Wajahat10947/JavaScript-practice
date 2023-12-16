@@ -1,5 +1,6 @@
 const div = document.querySelector('.render-api');
 const cartShow = document.querySelector('.cart');
+let checkout = document.querySelector('#checkout')
 
 let apiItems;
 
@@ -43,11 +44,17 @@ let cart = [];
 
 function addToCart(index) {
 
-  cart.push(apiItems[index]);
-
-   
+  cart.push(apiItems[index]);  
     
 }
 
 console.log(cart);
 
+checkout.addEventListener('click', () => {
+
+    const strObj = JSON.stringify(cart);
+    localStorage.setItem('items' , strObj)
+   
+    window.location = 'add-to-cart.html';
+
+})
